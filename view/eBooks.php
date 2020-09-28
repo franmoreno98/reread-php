@@ -77,6 +77,7 @@
     if (!empty($result) && mysqli_num_rows($result) > 0){
       while ($row = mysqli_fetch_array($result)){
         echo "<p>".$row['Title']."</p>";
+
       }
     } else {
       echo "0 resultados";
