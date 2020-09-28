@@ -17,17 +17,18 @@
 
   <div class="column left">
     <div class="topnav">
-      <a href="../index.html">Re-Read</a>
-      <a href="libros.html">Libros</a>
-      <a href="eBooks.html">eBooks</a>
+      <a href="../index.php">Re-Read</a>
+      <a href="libros.php">Libros</a>
+      <a href="eBooks.php">eBooks</a>
     </div>
     <h3>Toda la actualidad en eBooks</h3>
     <h4>Libros casi nuevos a un precio casi imposible.</h4>
-    <div class="ebook">
+    <!--<div class="ebook">
       <a href="https://es.wikipedia.org/wiki/Cell_(novela)"><img src="../img/ebook1.jpeg" alt="Imagen 1">
-      <div>A través de los teléfonos móviles se envía un mensaje que convierte a todos en esclavos asesinos...</div></a>
-    </div>
-    <div class="ebook">
+     <div>A través de los teléfonos móviles se envía un mensaje que convierte a todos en esclavos asesinos...</div></a>
+    </div>-->
+
+    <!--<div class="ebook">
       <a href="https://es.wikipedia.org/wiki/El_ciclo_del_hombre_lobo"><img src="../img/ebook2.jpeg" alt="Imagen 2">
       <div>Una escalofriante revisión del mito del hombre lobo por el rey de la literatura de terror...</div></a>
     </div>
@@ -38,9 +39,34 @@
     <div class="ebook">
       <a href="https://es.wikipedia.org/wiki/Doctor_Sue%C3%B1o"><img src="../img/ebook4.jpeg" alt="Imagen 4">
       <div>Una novela que entusiasmará a los millones de lectores de El resplandor y que encantará...</div></a>
-    
-    </div>
-    </div>
+    -->
+
+    <?php
+    //1. Conexion con bd
+    include '../services/connection.php';
+
+    //2. selecion y muestra de datos d la bd
+
+    $result = mysqli_query($conn, "SELECT Books.description, Books.img, Books.Title From Books WHERE eBook != '0'");
+
+    if (!empty($result) && mysqli_num_rows($result) > 0){
+      //datosde salida de cada fila (fila = row)
+      while ($row = mysqli_fetch_array($result)){
+      echo "<div class='ebook'>";
+      echo "<img src=../img/".$row['img']." alt='".$row['Title']."'>";
+      echo "<div class='desc'>".$row['Title']." </div>";
+      echo "</div>";
+        //añadimos el titulo a la pagina con etiqueta h2 de html
+      
+      
+      }
+    } else {
+      echo "0 resultados";
+    }
+    ?>
+  </div>
+  </div>
+  </div>
   
   <div class="column right">
     <h2>Top Ventas</h2>

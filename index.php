@@ -17,9 +17,9 @@
 
   <div class="column left">
     <div class="topnav">
-      <a href="index.html">Re-Read</a>
-      <a href="view/libros.html">Libros</a>
-      <a href="view/eBooks.html">eBooks</a>
+      <a href="index.php">Re-Read</a>
+      <a href="view/libros.php">Libros</a>
+      <a href="view/eBooks.php">eBooks</a>
     </div>
     <h2>Main Content</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>

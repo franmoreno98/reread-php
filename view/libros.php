@@ -17,9 +17,9 @@
 
   <div class="column left">
     <div class="topnav">
-      <a href="../index.html">Re-Read</a>
-      <a href="libros.html">Libros</a>
-      <a href="eBooks.html">eBooks</a>
+      <a href="../index.php">Re-Read</a>
+      <a href="libros.php">Libros</a>
+      <a href="eBooks.php">eBooks</a>
     </div>
     <h3>Todos los libros tienen el mismo precio</h3>
     <h4>Libros casi nuevos a un precio casi imposible.</h4>
