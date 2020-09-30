@@ -51,13 +51,16 @@
 
     if (!empty($result) && mysqli_num_rows($result) > 0){
       //datosde salida de cada fila (fila = row)
+      $i=0;
       while ($row = mysqli_fetch_array($result)){
+        $i++;
       echo "<div class='ebook'>";
       echo "<img src=../img/".$row['img']." alt='".$row['Title']."'>";
-      echo "<div class='desc'>".$row['Title']." </div>";
+      echo "<div class='desc'>".$row['Description']." </div>";
       echo "</div>";
-        //añadimos el titulo a la pagina con etiqueta h2 de html
-      
+      if ($i%3==0) {
+        echo "<div style='clear:booth;'></div>";
+      }
       
       }
     } else {
@@ -83,12 +86,6 @@
       echo "0 resultados";
     }
     ?>
-
-  <!--
-    <p>Cien años de soledad</p>
-    <p>Crónica de una muerte anunciada</p>
-    <p>El otoño del patriarca</p>
-    <p>El general en su laberinto</p>-->
   </div>
 </div>
   
