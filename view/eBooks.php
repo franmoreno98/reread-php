@@ -26,9 +26,9 @@
     <!--<div class="ebook">
       <a href="https://es.wikipedia.org/wiki/Cell_(novela)"><img src="../img/ebook1.jpeg" alt="Imagen 1">
      <div>A través de los teléfonos móviles se envía un mensaje que convierte a todos en esclavos asesinos...</div></a>
-    </div>-->
+    </div>
 
-    <!--<div class="ebook">
+    <div class="ebook">
       <a href="https://es.wikipedia.org/wiki/El_ciclo_del_hombre_lobo"><img src="../img/ebook2.jpeg" alt="Imagen 2">
       <div>Una escalofriante revisión del mito del hombre lobo por el rey de la literatura de terror...</div></a>
     </div>
@@ -51,13 +51,16 @@
 
     if (!empty($result) && mysqli_num_rows($result) > 0){
       //datosde salida de cada fila (fila = row)
+      $i=0;
       while ($row = mysqli_fetch_array($result)){
+        $i++;
       echo "<div class='ebook'>";
       echo "<img src=../img/".$row['img']." alt='".$row['Title']."'>";
-      echo "<div class='desc'>".$row['Title']." </div>";
+      echo "<div class='desc'>".$row['Description']." </div>";
       echo "</div>";
-        //añadimos el titulo a la pagina con etiqueta h2 de html
-      
+      if ($i%3==0) {
+        echo "<div style='clear:booth;'></div>";
+      }
       
       }
     } else {
@@ -67,13 +70,22 @@
   </div>
   </div>
   </div>
-  
+
   <div class="column right">
-    <h2>Top Ventas</h2>
-    <p>Cien años de soledad</p>
-    <p>Crónica de una muerte anunciada</p>
-    <p>El otoño del patriarca</p>
-    <p>El general en su laberinto</p>
+  <h2>Top Ventas</h2>
+  <?php
+
+    $result = mysqli_query($conn, "SELECT Books.Title FROM Books WHERE Top = '1'");
+
+    if (!empty($result) && mysqli_num_rows($result) > 0){
+      while ($row = mysqli_fetch_array($result)){
+        echo "<p>".$row['Title']."</p>";
+
+      }
+    } else {
+      echo "0 resultados";
+    }
+    ?>
   </div>
 </div>
   
