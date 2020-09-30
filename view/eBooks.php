@@ -47,7 +47,7 @@
 
     //2. selecion y muestra de datos d la bd
 
-    $result = mysqli_query($conn, "SELECT Books.description, Books.img, Books.Title From Books WHERE eBook != '0'");
+    $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title From Books WHERE eBook != '0'");
 
     if (!empty($result) && mysqli_num_rows($result) > 0){
       //datosde salida de cada fila (fila = row)
@@ -56,7 +56,7 @@
         $i++;
       echo "<div class='ebook'>";
       echo "<img src=../img/".$row['img']." alt='".$row['Title']."'>";
-      echo "<div class='desc'>".$row['Description']." </div>";
+      echo "<div class='desc'>".$row['Description']."</div>";
       echo "</div>";
       if ($i%3==0) {
         echo "<div style='clear:booth;'></div>";
