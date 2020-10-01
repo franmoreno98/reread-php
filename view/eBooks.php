@@ -21,25 +21,36 @@
       <a href="libros.php">Libros</a>
       <a href="eBooks.php">eBooks</a>
     </div>
+
+
     <h3>Toda la actualidad en eBooks</h3>
     <h4>Libros casi nuevos a un precio casi imposible.</h4>
-    <!--<div class="ebook">
-      <a href="https://es.wikipedia.org/wiki/Cell_(novela)"><img src="../img/ebook1.jpeg" alt="Imagen 1">
-     <div>A través de los teléfonos móviles se envía un mensaje que convierte a todos en esclavos asesinos...</div></a>
-    </div>
+    <!-- nuevo desarrollo: formulario para filtrar autor-->
+    <div>
+      <form action="eBooks.php" method="POST">
+        <label for="fautor">Autor</label>
+        <input type="text" id="fautor" name="fautor" placeholder="Introduzca el autor...">
 
-    <div class="ebook">
-      <a href="https://es.wikipedia.org/wiki/El_ciclo_del_hombre_lobo"><img src="../img/ebook2.jpeg" alt="Imagen 2">
-      <div>Una escalofriante revisión del mito del hombre lobo por el rey de la literatura de terror...</div></a>
+        <!--<label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>-->
+        <input type="submit" value="Buscar">
+      </form>
     </div>
-    <div class="ebook">
-      <a href="https://es.wikipedia.org/wiki/El_resplandor_(novela)"><img src="../img/ebook3.jpeg" alt="Imagen 3">
-      <div>Esa es la palabra que Danny había visto en el espejo. Y, aunque no sabía leer, entendió que era un mensaje de horror...</div></a>
-    </div>
-    <div class="ebook">
-      <a href="https://es.wikipedia.org/wiki/Doctor_Sue%C3%B1o"><img src="../img/ebook4.jpeg" alt="Imagen 4">
-      <div>Una novela que entusiasmará a los millones de lectores de El resplandor y que encantará...</div></a>
-    -->
+    <?php
+      if(isset($_POST['fautor'])){
+        //filtrará los eBooks qe se mostrarán en la página
+      }else{
+        //mostrará todos los eBooks de la BD
+        
+      }
+    ?>
 
     <?php
     //1. Conexion con bd
@@ -53,7 +64,7 @@
       //datosde salida de cada fila (fila = row)
       $i=0;
       while ($row = mysqli_fetch_array($result)){
-        $i++;
+      $i++;
       echo "<div class='ebook'>";
       echo "<img src=../img/".$row['img']." alt='".$row['Title']."'>";
       echo "<div class='desc'>".$row['Description']."</div>";
