@@ -30,8 +30,8 @@
         <form action="ebooks.php" method="POST">
           <label for="fautor">Autor</label>
           <input type="text" id="fautor" name="fautor" placeholder="Introduce el autor...">
-          <!-- <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name..">-->
+          <label for="title">Título</label>
+          <input type="text" id="title" name="title" placeholder="Introduce el título del libro..">
           <label for="country">País</label>
           <select id="country" name="country">
           <option value="%">Todos los paises</option>
@@ -56,7 +56,8 @@
         FROM Books  INNER JOIN BooksAuthors ON Id=BooksAuthors.BookId
         INNER JOIN Authors ON Authors.Id = BooksAuthors.AuthorId
         WHERE Authors.Name LIKE '%{$_POST['fautor']}%'
-        AND Authors.Country LIKE '%{$_POST['country']}%'";
+        AND Authors.Country LIKE '%{$_POST['country']}%'
+        AND Books.Title LIKE '%{$_POST['title']}%'";
         $result = mysqli_query($conn, $query);
       }else {
         //mostrará todos los ebooks de la DB 
